@@ -7,11 +7,20 @@
     <div>
         <p id="hello">BIENVENIDO</p>
     </div>
+    <!-- CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
+		/*alert("Test")
         $(document).ready(function() {
-            $('#hello').text('Hola Mundo jQuery!');
-        });
+            $("#hello").text("HOLA");
+        });*/
+        
+        $(document).ready(test());
+        
+        function test(){
+			$('#hello').text('Hola Mundo jQuery!');
+		}
+        
     </script>
 </body>
 </html>

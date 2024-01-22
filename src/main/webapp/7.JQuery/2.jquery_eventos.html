@@ -16,9 +16,10 @@
     </script>
 </head>
 <body id="body_eventos">
-	<H1>TITULO DE LA PÁGINA 1</H1>
-	<H2>TITULO DE LA PÁGINA 2</H2>
-	<H3>TITULO DE LA PÁGINA 3</H3>
+	<H1>TITULO DE LA Pï¿½GINA 1</H1>
+	<H2>TITULO DE LA Pï¿½GINA 2</H2>
+	<H2>TITULO DE LA Pï¿½GINA 2.1</H2>
+	<H3>TITULO DE LA Pï¿½GINA 3</H3>
     <div>
         <p id="hello">BIENVENIDO</p>
     </div>
@@ -26,33 +27,34 @@
     
     <script>
     	//https://api.jquery.com/category/events/
-		$(document).ready(function(){ 
+		$(document).ready(function(){
 			$('#hello').click(function(){
 				alert($(this).text());
 		    }); 
 		    
-		    $("h2,h3").click(function(){  
-		        $(this).hide();  
+		    $("h2,h3").click(function(){ 
+				$("h2").hide(); 
+		        //$(this).hide();
 		    });  
 
 		    $("h1").dblclick(function(){
 		    	alert("Entra")
-		       	$("#body_eventos").css("background-color", "red")
+		       	$("#body_eventos").css("background-color", "red").css("color","blue")
 		    });
 		    
-		    $("p").mouseenter(function(){
+		    /*$("p").mouseenter(function(){
 		    	$("#body_eventos").css("background-color", "blue")
 		    });
 		    
 		    $("p").mouseleave(function(){
 		    	$("#body_eventos").css("background-color", "green")
-		    });
+		    });*/
 		    
 		});
     
 		$(window).resize(function(){
 			//alert("Alto: " + $(window).height() + " Ancho: " + $(window).width() );
-			console.log("Alto: " + $(window).height() + " Ancho: " + $(window).width() );
+			console.log("Alto: " + $(this).height() + " Ancho: " + $(window).width() );
 	    });
     </script>
     
@@ -64,7 +66,7 @@
     <input type="text" id="cajatexto2"></input>
     <input type="text" id="cajatexto3"></input>
     
-        <script>
+    <script>
 
     </script>
 </body>
