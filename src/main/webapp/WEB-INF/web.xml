@@ -7,15 +7,15 @@
   	
   
   <servlet>
-  	<servlet-name>ServletPrueba2</servlet-name>
+  	<servlet-name>sp2</servlet-name>
   	<display-name>ServletPrueba2</display-name>
   	<description></description>
   	<servlet-class>servlets.ServletPrueba</servlet-class>
   </servlet>
 
   <servlet-mapping>
-  	<servlet-name>ServletPrueba2</servlet-name>
-  	<url-pattern>/ServletPrueba2</url-pattern>
+  	<servlet-name>sp2</servlet-name>
+  	<url-pattern>/numeropar</url-pattern>
   </servlet-mapping>
   
   
