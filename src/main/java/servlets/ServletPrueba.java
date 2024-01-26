@@ -25,12 +25,19 @@ public class ServletPrueba extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String nombre = request.getParameter("nombre");
-		String sessionId = request.getSession().getId();
 		
-		System.out.println("Ha entrado "+ nombre + " con el id "+sessionId);
-		
-		response.getWriter().append("<H1>HOLA"+nombre+"</h1");
+		if (request.getParameter("numero")!=null) {
+			int numero = Integer.parseInt(request.getParameter("numero"));
+			
+			
+			if (numero%2==0) {
+				response.getWriter().append("<H1>EL numero "+numero+"es par</h1>");
+			}else {
+				response.getWriter().append("<H1>EL numero "+numero+"es impar</h1>");
+			}
+		}else {
+			response.getWriter().append("<H1>No has introducido el numero</h1>");
+		}
 	}
 
 	/**
