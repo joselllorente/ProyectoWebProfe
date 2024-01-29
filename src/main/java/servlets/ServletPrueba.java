@@ -13,7 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
  * Servlet implementation class ServletPrueba
  */
 public class ServletPrueba extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+
+
 
     /**
      * Default constructor. 
