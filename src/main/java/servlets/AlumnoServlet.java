@@ -83,7 +83,23 @@ public class AlumnoServlet extends HttpServlet {
 			response.getWriter().append(texto + alumn.getNombre() + " "+ alumn.getApellidos() +"\n");
 		}
 		
+		String html = "<!DOCTYPE html>"+
+		"<html>"+
+		"<head>"+
+		"<meta charset='ISO-8859-1'>"+
+		"<title>Insert title here</title>"+
+		"</head>"+
+		"<body>";
 
+		for (int i=0; i<5; i++) {
+			html+= "<p>Esto es una prueba de jsp</p>";
+		}
+
+		html+="</body>"+ "</html>";
+		
+		response.getWriter().append(html);
+		
+		
 	}
 
 }
