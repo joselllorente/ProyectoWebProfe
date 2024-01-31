@@ -44,6 +44,26 @@ public class FormularioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doPost FormularioServlet");
+		
+		String id = request.getSession().getId();
+		System.out.println("El usuario con sesión "+id + " hace peticion");
+		int contador = 0;
+		do {
+			
+			System.out.println("El usuario con sesión "+id + " está dentro con contador: "+contador);
+			contador++;
+			try {
+				System.out.println("pasa");
+				Thread.sleep(10000);
+				System.out.println("pasa1");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}while (contador<12);
+		
+		System.out.println("El usuario con sesión "+id + " ha finalizado");
+		
 		String caja1 = request.getParameter("caja1");
 		String caja2 = request.getParameter("caja2");
 		response.setContentType("text/html");
