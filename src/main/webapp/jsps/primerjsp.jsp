@@ -10,11 +10,11 @@
 <body>
 
 <% 
-	out.print("<H1>Hola</H1>");
+   out.print("<H1>Hola</H1>");
    int numero =	Integer.parseInt(request.getParameter("numero"));
    for (int i=0; i<numero; i++) { 
 %>
-<p>Esto es una prueba de jsp</p>
+<p>Esto es una prueba de jsp<%= numero %></p>
 <% } %>
 
 <ol>
@@ -25,9 +25,8 @@
 	colores.add("Amarillo");
 	colores.add("Verde");
 	for (String color : colores) {  
-%>
+%> 
 	<li><%= color %></li>
-
 <% }%>
 </ol>
 

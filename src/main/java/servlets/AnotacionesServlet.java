@@ -1,7 +1,10 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebInitParam;
@@ -22,8 +25,18 @@ public class AnotacionesServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("doGet");
+		System.out.println("doGet AnotacionesServlet");
+		List<String> colores = new ArrayList();
+		colores.add("Rojo");
+		colores.add("Azul");
+		colores.add("Amarillo");
+		colores.add("Verde");
+		
+		System.out.println(colores.size());
+		req.setAttribute("listaColores", colores);
+		RequestDispatcher rd = req.getRequestDispatcher("listadoColores.jsp?numero=8");
+		rd.forward(req, resp);
+		
 	}
 
 	@Override
