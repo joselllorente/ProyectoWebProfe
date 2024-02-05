@@ -32,19 +32,18 @@
 
 <form action="/ProyectoWebProfe/alumno" method="post" id="AlumnoForm" onsubmit="return enviar()">
 	
-	Nombre <input type="text" name="nombre" placeholder="Introduce tu nombre" tabindex="1" autofocus><br> 
-	Apellidos <input type="text" name="apellidos" placeholder="Introduce tu apellido" tabindex="3"><br>
+	Nombre <input type="text" name="nombre" placeholder="Introduce tu nombre" tabindex="1" autofocus value="Por defecto"><br> 
+	Apellidos <input type="text" name="apellidos" placeholder="Introduce tu apellido" tabindex="2" value="Por defecto"><br>
 	Sexo: 
-	<input id="radio1" type="radio" name="sex" value="H" tabindex="4">Hombre</input>
+	<input id="radio1" type="radio" name="sex" value="H" tabindex="3">Hombre</input>
 	<input id="radio2" type="radio" name="sex" value="M" >Mujer</input>
-	<input id="radio3" type="radio" name="sex" value="O" >Otros</input>
+	<input id="radio3" type="radio" name="sex" value="O" checked>Otros</input>
 	<br>
+
 	
-	Dni <input type="text" name="apellidos" placeholder="Introduce tu apellido" tabindex="5"><br>
-	
-	<select id="asignatura" name="asignatura" required tabindex="7">
+	<select id="asignatura" name="asignatura" required tabindex="4">
 		<option value="0">Seleccione una opción</option>
-		<option value="Mate">Matemáticas</option>
+		<option value="Mate" selected>Matemáticas</option>
 		<option value="Hist">Historía</option>
 		<option value="Quim">Química</option>
 	</select>

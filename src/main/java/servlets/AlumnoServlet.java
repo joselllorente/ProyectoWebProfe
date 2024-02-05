@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -69,7 +69,6 @@ public class AlumnoServlet extends HttpServlet {
 		
 		List<Alumno> alumnoUsuario = new ArrayList();
 		if (session.getAttribute("listadoAlumnos")==null) {
-			
 			alumnoUsuario.add(alumno);
 			session.setAttribute("listadoAlumnos", alumnoUsuario);
 		}else {
@@ -83,21 +82,10 @@ public class AlumnoServlet extends HttpServlet {
 			response.getWriter().append(texto + alumn.getNombre() + " "+ alumn.getApellidos() +"\n");
 		}
 		
-		String html = "<!DOCTYPE html>"+
-		"<html>"+
-		"<head>"+
-		"<meta charset='ISO-8859-1'>"+
-		"<title>Insert title here</title>"+
-		"</head>"+
-		"<body>";
 
-		for (int i=0; i<5; i++) {
-			html+= "<p>Esto es una prueba de jsp</p>";
-		}
-
-		html+="</body>"+ "</html>";
-		
-		response.getWriter().append(html);
+		request.setAttribute("atributoListadoAlumnos", alumnoUsuario);
+		RequestDispatcher rd = request.getRequestDispatcher("ejercicioalumno/listadoAlumnos.jsp"); 
+		rd.forward(request, response);
 		
 		
 	}
