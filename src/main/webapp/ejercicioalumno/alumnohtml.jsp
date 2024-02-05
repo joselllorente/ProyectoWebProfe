@@ -27,25 +27,34 @@
 </script>
 
 </head>
+
+<%
+
+String nombre 	 = request.getParameter("nombre")!=null?request.getParameter("nombre"):"";
+String apellidos = request.getParameter("apellidos")!=null?request.getParameter("apellidos"):"";
+String sex = request.getParameter("sex")!=null?request.getParameter("sex"):"";
+String asignatura = request.getParameter("asignatura")!=null?request.getParameter("asignatura"):"";
+
+%>
+
 <body>
 <h1>CREACION ALUMNO</h1>
-
 <form action="/ProyectoWebProfe/alumno" method="post" id="AlumnoForm" onsubmit="return enviar()">
 	
-	Nombre <input type="text" name="nombre" placeholder="Introduce tu nombre" tabindex="1" autofocus value="Por defecto"><br> 
-	Apellidos <input type="text" name="apellidos" placeholder="Introduce tu apellido" tabindex="2" value="Por defecto"><br>
+	Nombre <input type="text" name="nombre" placeholder="Introduce tu nombre" tabindex="1" autofocus value="<%=nombre%>"><br> 
+	Apellidos <input type="text" name="apellidos" placeholder="Introduce tu apellido" tabindex="2" value="<%=apellidos%>"><br>
 	Sexo: 
-	<input id="radio1" type="radio" name="sex" value="H" tabindex="3">Hombre</input>
-	<input id="radio2" type="radio" name="sex" value="M" >Mujer</input>
-	<input id="radio3" type="radio" name="sex" value="O" checked>Otros</input>
+	<input id="radio1" type="radio" name="sex" value="H" <%=sex.equals("H")?"checked":"" %> tabindex="3">Hombre</input>
+	<input id="radio2" type="radio" name="sex" value="M" <%=sex.equals("M")?"checked":"" %>>Mujer</input>
+	<input id="radio3" type="radio" name="sex" value="O" <%=sex.equals("O")?"checked":"" %>>Otros</input>
 	<br>
 
 	
 	<select id="asignatura" name="asignatura" required tabindex="4">
-		<option value="0">Seleccione una opción</option>
-		<option value="Mate" selected>Matemáticas</option>
-		<option value="Hist">Historía</option>
-		<option value="Quim">Química</option>
+		<option value="0">Seleccione una opci�n</option>
+		<option value="Mate" <%=asignatura.equals("Mate")?"selected":"" %>>Matemáticas</option>
+		<option value="Hist" <%=asignatura.equals("Hist")?"selected":"" %>>Historía</option>
+		<option value="Quim" <%=asignatura.equals("Quim")?"selected":"" %>> Qu�mica</option>
 	</select>
 	<br>
 	Descripción<br>
@@ -74,3 +83,4 @@
 </script>
 </body>
 </html>
+

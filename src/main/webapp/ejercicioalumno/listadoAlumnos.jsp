@@ -15,6 +15,7 @@
 
 <table>
 	<tr>
+		<th></th>
 		<th>Nombre</th>
 		<th>Apellidos</th>
 		<th>Sexo</th>
@@ -25,6 +26,13 @@
 	for(Alumno alumno : alumnos){
 %>
 	<tr>
+		<td><a href="/ProyectoWebProfe/ejercicioalumno/
+				alumnohtml.jsp?nombre=<%=alumno.getNombre()%>
+				&apellidos=<%=alumno.getApellidos()%>
+				&sex=<%= alumno.getSex()%>
+				&asignatura=<%= alumno.getAsignaturas()[0]%>"
+				
+				>Modificar</a></td>
 		<td><%= alumno.getNombre()  %></td>
 		<td><%= alumno.getApellidos()  %></td>
 		<td><%= alumno.getSex()  %></td> 
@@ -34,7 +42,7 @@
 <%	} %>
 
 </table>
-
+<button onclick="">Nuevo Alumno</button>
 
 </body>
 </html>
