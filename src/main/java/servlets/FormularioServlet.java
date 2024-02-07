@@ -1,6 +1,9 @@
 package servlets;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
@@ -26,7 +29,19 @@ public class FormularioServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("Iniciando");
+		System.out.println("Iniciando"); 
+		Properties props = new Properties();
+		try {
+			ClassLoader classLoader = FormularioServlet.class.getClassLoader();
+			InputStream inputStream = classLoader.getResourceAsStream("configuration.properties");
+
+			props.load(inputStream);
+			String titulo = (String)props.get("titulo");
+			System.out.println(titulo);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
