@@ -1,8 +1,17 @@
-package pojos.muebles;
+package entities.muebles;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value = "SOFA")
 public class Sofa extends Mueble {
 	private String color;
 
+	public Sofa () {
+		
+	}
+	
 	public Sofa(String nombre, double precio, String color) {
 		super(nombre, precio);
 		this.color = color;

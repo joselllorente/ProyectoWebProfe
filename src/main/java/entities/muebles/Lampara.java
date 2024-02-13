@@ -1,8 +1,17 @@
-package pojos.muebles;
+package entities.muebles;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value = "LAMP")
 public class Lampara extends Mueble {
 	private double potencia;
 
+	public Lampara () {
+		
+	}
+	
 	public Lampara(String nombre, double precio, double potencia) {
 		super(nombre, precio);
 		this.potencia = potencia;

@@ -6,6 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import daos.MueblesDAO;
+import entities.muebles.Lampara;
+import entities.muebles.Mesa;
+import entities.muebles.Mueble;
+import entities.muebles.Sofa;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
@@ -13,10 +18,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pojos.muebles.Lampara;
-import pojos.muebles.Mesa;
-import pojos.muebles.Mueble;
-import pojos.muebles.Sofa;
 
 
 
@@ -26,7 +27,7 @@ import pojos.muebles.Sofa;
 public class MueblesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private String subtitulo;
-    private List<Mueble> muebles;
+    //private List<Mueble> muebles;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,7 +44,7 @@ public class MueblesServlet extends HttpServlet {
 		subtitulo = config.getInitParameter("subtitle");
 		System.out.println("Entrando init con subtitulo "+ subtitulo);
 		//Inicializo la lista para poder empezar a guardar objetos
-		muebles = new ArrayList<Mueble>();
+		//muebles = new ArrayList<Mueble>();
 	}
 
 	/**
@@ -70,21 +71,28 @@ public class MueblesServlet extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		double precio = Double.parseDouble(request.getParameter("precio"));
 		
+		
+		MueblesDAO<Mueble> mdao = new MueblesDAO();
+		Mueble mueble = null;
 		if(tipo.equals("M")) {
 			String estilo = request.getParameter("estilo");
-			Mesa mesa = new Mesa (nombre,precio,estilo);
-			muebles.add(mesa);
+			mueble = new Mesa (nombre,precio,estilo);
+			//muebles.add(mesa);
+			
 		}else  if(tipo.equals("S")) {
 			String color = request.getParameter("color");
-			Sofa sofa = new Sofa(nombre,precio,color);
-			muebles.add(sofa);
+			mueble = new Sofa(nombre,precio,color);
+			//muebles.add(sofa);
 		}else if(tipo.equals("L")) {
 			double potencia = Double.parseDouble(request.getParameter("potencia"));
-			Lampara lampara = new Lampara(nombre,precio,potencia);
-			muebles.add(lampara);
+			mueble = new Lampara(nombre,precio,potencia);
+			//muebles.add(lampara);
 		}
+		//Realizamos la inserción
+		mdao.insert(mueble);
 		
-		
+		//Obtenemos los muebles de la base de datos
+		List<Mueble> muebles =  mdao.get();
 		
 		Map<String,Object> datos = new HashMap<String,Object>();
 		datos.put("subtitulo", subtitulo);
