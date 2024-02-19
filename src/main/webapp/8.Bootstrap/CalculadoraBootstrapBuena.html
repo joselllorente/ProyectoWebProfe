@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style type="text/css">
+	a:active {
+		color: blue
+	}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+ 	var numero = 0
+ 	var operacion =""
+
+	$(document).ready(function(){
+		$("#botonNumero1").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero2").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero3").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero4").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero5").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero6").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero7").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero8").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero9").click(function(){
+			cargarValor($(this).val())
+		});
+		$("#botonNumero0").click(function(){
+			cargarValor($(this).val())
+		});
+		
+		
+		$("#botonSuma").click(function(){
+// 			console.log("Sumando")
+// 			numero = $("#cajaTexto1").val()
+// 			console.log("Numero "+numero)
+// 			$("#cajaTexto1").val("") 
+// 			operacion="suma"
+// 			console.log("Fin")
+			operar ("suma")
+	    });
+		
+		$("#botonResta").click(function(){
+// 			console.log("Restando")
+// 			numero = $("#cajaTexto1").val()
+// 			console.log("Numero "+numero)
+// 			$("#cajaTexto1").val("") 
+// 			operacion="resta"
+// 			console.log("Fin")
+			operar ("resta")
+	    });
+			    
+		$("#botonIgual").click(function(){
+			
+	 		var numero2 = $("#cajaTexto1").val()
+	 		var resultado = 0
+	 		if (operacion=="suma"){
+	 			resultado = parseInt(numero2) + parseInt(numero)
+	 		}else if (operacion=="resta"){
+	 			resultado = parseInt(numero) - parseInt(numero2)
+	 		}
+			
+	 		$("#cajaTexto1").val(resultado)
+		});
+		
+		$("#botonReset").click(function(){
+	 		reset()
+		});
+		
+		function cargarValor(numero){
+			console.log(numero)
+			var numeroCaja = $("#cajaTexto1").val()
+			
+			$("#cajaTexto1").val(numeroCaja+numero) 
+		}
+		
+		function operar(tipoOperacion){
+			console.log(tipoOperacion)
+			numero = $("#cajaTexto1").val()
+			console.log("Numero "+numero)
+			$("#cajaTexto1").val("") 
+			operacion= tipoOperacion
+			console.log("Fin")
+		}
+		
+		function reset(){
+			$("#cajaTexto1").val("") 
+			operacion= ""
+		}
+	});
+
+
+</script>
+</head>
+
+<body>
+	<div class="container">
+		<!-- CABECERA -->
+		<header class="row align-items-center bg-dark">
+			<div class="col-12 col-md-6">
+				<h1 class="text-uppercase text-center text-success">Calculadora Bootstrap</h1>
+			</div>
+			<div class="col-12 col-md-6">
+				<img class="img-fluid" src="img/clase.jpg" alt="">
+			</div>
+		</header>
+		<!-- FILA CAJA TEXTO -->
+		<div class="row justify-content-center mt-3">
+			<div class="col-9 col-md-9">
+				<input id="cajaTexto1" class="form-control" type="number" readonly> <br><br>
+			</div>
+			<div class="col-3 col-md-3">
+				<input type="button" id="botonReset" class="btn-lg btn-success" value="Reset">
+			</div>
+		</div>
+		
+		<!-- FILA BOTONES NUMEROS -->
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-6 col-lg-3 d-flex gap-5 justify-content-center mt-3">
+				<input type="button" id="botonNumero1" class="btn-lg btn-success" value="1">
+				<input type="button" id="botonNumero2" class="btn-lg btn-success" value="2">
+				<input type="button" id="botonNumero3" class="btn-lg btn-success" value="3">
+			</div>
+		
+			<div class="col-12 col-md-6 col-lg-3 d-flex gap-5 justify-content-center mt-3">
+				<input type="button" id="botonNumero4" class="btn-lg btn-success" value="4">
+				<input type="button" id="botonNumero5" class="btn-lg btn-success" value="5">
+				<input type="button" id="botonNumero6" class="btn-lg btn-success" value="6">
+			</div>
+		
+			<div class="col-12 col-md-6 col-lg-3 d-flex gap-5 justify-content-center mt-3">
+				<input type="button" id="botonNumero7" class="btn-lg btn-success" value="7">
+				<input type="button" id="botonNumero8" class="btn-lg btn-success" value="8">
+				<input type="button" id="botonNumero9" class="btn-lg btn-success" value="9">
+			</div>
+			<div class="col-12 col-md-6 col-lg-3 d-flex gap-5 justify-content-center mt-3">
+				<input type="button" id="botonNumero0" class="btn-lg btn-success" value="0">
+			</div>
+		</div>
+		
+		<!-- FILA BOTONES OPERACIONES -->
+		<div class="row justify-content-center mt-3">
+			<div class="d-grid gap-2 col-12 col-md-3">
+				<input type="button" id="botonSuma" class="btn-lg btn-success" value="Suma">
+			</div>
+			<div class="d-grid gap-2 col-12 col-md-3">
+				<input type="button" id="botonResta" class="btn-lg btn-success" value="Resta">
+			</div>
+			<div class="d-grid gap-2 col-12 col-md-3">
+				<input type="button" id="botonIgual" class="btn-lg btn-success" value="Igual">
+			</div>
+		</div>
+		
+		<!-- FILA FOOTER -->
+		<footer class="row align-items-center bg-dark mt-3">
+			<figure class="text-center text-success">
+				<blockquote class="blockquote">
+					<p>Pie de página</p>
+				</blockquote>
+			</figure>
+		</footer>
+	</div>
+	 
+	
+	
+</body>
+</html>
